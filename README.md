@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sistoko — SISTECH 2026 Hands-On Task 2
 
-## Getting Started
+Hi! This repository contains **Sistoko**, a simple e-commerce storefront built as the final deliverable for the **Front-End Engineering Hands-On Task 2** at SISTECH 2026.
 
-First, run the development server:
+This project demonstrates my ability to consume a real REST API, manage client-side state, and build a functional shopping experience using modern React and Next.js patterns.
 
+---
+
+## 🚀 Features
+
+This project implements several key frontend concepts required for the task:
+
+- **Real-time API Integration** — All products are fetched directly from the SISTECH E-Commerce API using a centralized service layer with proper error handling and data normalization.
+- **Dynamic Product Listing** — Utilizes React's `.map()` to dynamically render product cards from API data, including discount badges, stock status, ratings, and featured/new arrival labels.
+- **Search & Filtering** — Includes a live search input and category filter that dynamically narrow down displayed products without mutating the original state.
+- **Sorting** — Products can be sorted by price (low–high, high–low), rating, or name, computed via `useMemo` for performance.
+- **Conditional Rendering** — Displays contextual UI states: a loading skeleton while fetching, an error state with a retry button on failure, and an empty state when no products match the filter.
+- **Product Detail Page** — Each product has a dedicated detail page (`/product/[id]`) fetched by ID from the API, showing full description, brand, store, and stock information.
+- **Shopping Cart** — A client-side cart powered by React Context and `localStorage` persistence. Supports adding items, adjusting quantity via a stepper, and removing items, with a live item count badge in the navbar.
+- **Reusable Components** — UI is broken down into focused, reusable components: `ProductCard`, `ProductGrid`, `SearchBar`, `Navbar`, `LoadingSkeleton`, `ErrorState`, and `EmptyState`.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **Next.js** | React framework (App Router) for routing and server/client rendering. |
+| **React** | Core library for building interactive UI with hooks (`useState`, `useEffect`, `useMemo`, `useContext`). |
+| **Tailwind CSS** | Utility-first CSS framework for rapid and responsive styling. |
+| **SISTECH E-Commerce API** | Backend REST API as the single source of truth for all product data. |
+
+---
+
+## 💻 Getting Started
+
+To run this project locally, follow these steps:
+
+**1. Clone the repository:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/aliyakhansa21/hands-on-2.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**2. Navigate to the project directory:**
+```bash
+cd hands-on-2
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**3. Install the dependencies:**
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**4. Set up environment variables:**
 
-## Learn More
+Create a `.env.local` file in the root directory and add the API base URL:
+```env
+NEXT_PUBLIC_API_URL=https://your-api-url-here.com
+```
 
-To learn more about Next.js, take a look at the following resources:
+**5. Start the development server:**
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**6.** Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
